@@ -1,4 +1,4 @@
-# tensorflow-rajawali
+# Tensorflow with Rajawali
 
 ## What is it
 The project integrates ARCore and TensorFlow objection detection for [Rajawali](https://github.com/Rajawali/Rajawali),
