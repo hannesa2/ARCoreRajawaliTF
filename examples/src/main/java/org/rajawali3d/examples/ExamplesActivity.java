@@ -2,8 +2,8 @@ package org.rajawali3d.examples;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.core.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.rajawali3d.examples.data.Example;
 import org.rajawali3d.examples.examples.AExampleFragment;

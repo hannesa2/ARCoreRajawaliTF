@@ -3,11 +3,10 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion rootProject.compileSdk
-    buildToolsVersion = '27.0.3'
 
     defaultConfig {
         applicationId "org.rajawali3d.examples"
-        minSdkVersion 21
+        minSdkVersion 26
         targetSdkVersion rootProject.targetSdk
         versionCode rootProject.versionCode
         versionName rootProject.versionName

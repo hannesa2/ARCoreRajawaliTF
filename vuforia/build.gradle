@@ -19,10 +19,9 @@ if (isReleaseBuild()) {
 
 android {
     compileSdkVersion rootProject.compileSdk
-    buildToolsVersion = '27.0.3'
 
     defaultConfig {
-        minSdkVersion 15
+        minSdkVersion 26
         targetSdkVersion rootProject.targetSdk
         versionCode rootProject.versionCode
         versionName rootProject.versionName

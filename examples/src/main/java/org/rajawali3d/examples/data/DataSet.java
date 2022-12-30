@@ -1,6 +1,6 @@
 package org.rajawali3d.examples.data;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.rajawali3d.examples.R;
 import org.rajawali3d.examples.examples.animation.AnimationFragment;

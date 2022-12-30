@@ -6,25 +6,18 @@ android {
 
     defaultConfig {
         applicationId "org.rajawali3d.examples"
-        minSdkVersion 24
+        minSdkVersion 26
         targetSdkVersion 33
         versionCode 1
         versionName '1.0'
 
-/*        externalNativeBuild {
-            cmake {
-                arguments '-DANDROID_TOOLCHAIN=gcc', '-DANDROID_STL=gnustl_static'
-                abiFilters "armeabi-v7a","armeabi","x86"
-            }
-        }*/
-
-        ndk {
-            abiFilters "armeabi-v7a", "x86"
-        }
-
-        dexOptions {
-            javaMaxHeapSize "4g"
-        }
+//        ndk {
+//            abiFilters "armeabi-v7a", "x86"
+//        }
+//
+//        dexOptions {
+//            javaMaxHeapSize "4g"
+//        }
     }
 
 /*    externalNativeBuild {
@@ -59,17 +52,12 @@ android {
 //        }
 //    }
 
-    dexOptions {
-        // Skip pre-dexing when running on Travis CI or when disabled via -Dpre-dex=false.
-        preDexLibraries = !isTravis()
-    }
-
     lintOptions {
-        abortOnError false;
+        abortOnError false
     }
 }
 repositories {
-    jcenter()
+    mavenCentral()
     google()
 }
 
@@ -100,5 +88,5 @@ dependencies {
 
 //    wearApp project(':wear-example')
 
-    implementation 'org.tensorflow:tensorflow-android:1.2.0'
+    implementation 'org.tensorflow:tensorflow-android:1.13.1'
 }

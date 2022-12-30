@@ -4,9 +4,9 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -28,7 +28,6 @@ import org.rajawali3d.examples.common.helpers.TapHelper;
 import org.rajawali3d.examples.common.rendering.DeerGirlARCoreRenderer;
 import org.rajawali3d.view.SurfaceView;
 import org.tensorflow.demo.OverlayView;
-import org.tensorflow.demo.tracking.MultiBoxTracker;
 
 public class DeerGirlActivity extends AppCompatActivity {
 
