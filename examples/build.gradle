@@ -10,30 +10,12 @@ android {
         targetSdkVersion 33
         versionCode getGitCommitCount()
         versionName getTag()
-
-//        ndk {
-//            abiFilters "armeabi-v7a", "x86"
-//        }
-//
-//        dexOptions {
-//            javaMaxHeapSize "4g"
-//        }
     }
 
     externalNativeBuild {
         cmake {
             path './src/main/jni/CMakeLists.txt'
         }
-    }
-//    externalNativeBuild {
-//        cmake {
-//            path './jni/CMakeLists.txt'
-//        }
-//    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
     }
 
     sourceSets {
@@ -49,13 +31,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
-
-//    productFlavors {
-//        withVuforia {
-//        }
-//        withoutVuforia {
-//        }
-//    }
 
     lintOptions {
         abortOnError false
