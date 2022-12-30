@@ -3,7 +3,7 @@ package org.rajawali3d.examples.examples;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.DialogFragment;
+import androidx.core.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 
 import org.rajawali3d.examples.R;

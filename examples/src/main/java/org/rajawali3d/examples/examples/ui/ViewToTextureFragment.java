@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import androidx.core.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Surface;
 import android.view.View;
