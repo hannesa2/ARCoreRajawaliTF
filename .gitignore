@@ -7,6 +7,8 @@ vuforia/build/
 wear/build/
 build/
 
+.cxx
+
 vuforia/src/main/obj/
 vuforia/src/main/libs/
 
