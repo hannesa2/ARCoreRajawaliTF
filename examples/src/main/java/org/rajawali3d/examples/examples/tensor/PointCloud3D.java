@@ -29,7 +29,7 @@ public class PointCloud3D extends Points {
     // Maximum depth range used to calculate coloring (min = 0).
     public static final float CLOUD_MAX_Z = 5;
 
-    private float[] mColorArray;
+    private final float[] mColorArray;
     private final int[] mPalette;
     public static final int PALETTE_SIZE = 360;
     public static final float HUE_BEGIN = 0;

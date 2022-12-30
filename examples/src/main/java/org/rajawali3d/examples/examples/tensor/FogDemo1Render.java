@@ -30,9 +30,8 @@ import org.rajawali3d.materials.textures.Texture;
 import org.rajawali3d.math.vector.Vector3;
 
 public class FogDemo1Render extends DeerGirlARCoreRenderer {
-    private TapHelper tapHelper;
+    private final TapHelper tapHelper;
 
-    private DirectionalLight mLight;
     private Object3D mRoad;
 
     public FogDemo1Render(@NotNull Context context, @NotNull TapHelper tapHelper, @NotNull Session session) {
@@ -43,7 +42,7 @@ public class FogDemo1Render extends DeerGirlARCoreRenderer {
     @Override
     protected void initScene() {
         super.initScene();
-        mLight = new DirectionalLight(0, -1, -1);
+        DirectionalLight mLight = new DirectionalLight(0, -1, -1);
         mLight.setPower(.5f);
 
         getCurrentScene().addLight(mLight);

@@ -34,10 +34,9 @@ import java.util.List;
 
 public class VideoTextureDemo1Render extends DeerGirlARCoreRenderer {
 
-    private TapHelper tapHelper;
+    private final TapHelper tapHelper;
     private MediaPlayer mMediaPlayer;
     private StreamingTexture mVideoTexture;
-    private ReflectionUtil reflectionUtil = new ReflectionUtil();
 
     public VideoTextureDemo1Render(@NotNull Context context, @NotNull TapHelper tapHelper, @NotNull Session session) {
         super(context, session);
@@ -203,7 +202,7 @@ public class VideoTextureDemo1Render extends DeerGirlARCoreRenderer {
                     } else if (trackable instanceof Point &&
                             ((Point) trackable).getOrientationMode() == Point.OrientationMode.ESTIMATED_SURFACE_NORMAL) {
                         Point point2 = (Point) trackable;
-                        Pose pointPos = (Pose) reflectionUtil.invokeMethod(point2, "getPose");
+                        Pose pointPos = (Pose) ReflectionUtil.invokeMethod(point2, "getPose");
                         if (pointPos != null) {
                             float[] centerArray = new float[3];
                             pointPos.getTranslation(centerArray, 0);

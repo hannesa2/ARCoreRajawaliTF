@@ -35,7 +35,7 @@ import javax.microedition.khronos.opengles.GL10;
 
 public class Planes2000Demo1Render extends DeerGirlARCoreRenderer {
 
-    private TapHelper tapHelper;
+    private final TapHelper tapHelper;
 
     private long mStartTime;
     private Material mMaterial;

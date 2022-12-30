@@ -34,7 +34,7 @@ import java.util.Random;
 public class MultiPassDemo1Render extends DeerGirlARCoreRenderer {
 
     private PostProcessingManager mEffects;
-    private TapHelper tapHelper;
+    private final TapHelper tapHelper;
 
     public MultiPassDemo1Render(@NotNull Context context, @NotNull TapHelper tapHelper, @NotNull Session session) {
         super(context, session);

@@ -28,12 +28,11 @@ import java.util.List;
 
 public class SkeletalAWDDemo1Render extends DeerGirlARCoreRenderer {
 
-    private TapHelper tapHelper;
+    private final TapHelper tapHelper;
     private DirectionalLight mLight;
     private SkeletalAnimationObject3D mObject;
 
     float scale = 0.01f;
-    ReflectionUtil reflectionUtil;
     AnimExecutor animExecutor = new AnimExecutor();
 
     public SkeletalAWDDemo1Render(@NotNull Context context, @NotNull TapHelper tapHelper, @NotNull Session session) {
@@ -41,12 +40,10 @@ public class SkeletalAWDDemo1Render extends DeerGirlARCoreRenderer {
         this.tapHelper = tapHelper;
     }
 
-
     @Override
     protected void initScene() {
         super.initScene();
 
-        //去掉光照，人物的阴影没有了，更亮
 //        mLight = new DirectionalLight(0, -0.2f, -1.0f); // set the direction
 //        mLight.setColor(1.0f, 1.0f, 1.0f);
 //        mLight.setPower(2);
@@ -197,7 +194,7 @@ public class SkeletalAWDDemo1Render extends DeerGirlARCoreRenderer {
                     } else if (trackable instanceof Point &&
                             ((Point) trackable).getOrientationMode() == Point.OrientationMode.ESTIMATED_SURFACE_NORMAL) {
                         Point point2 = (Point) trackable;
-                        Pose pointPos = (Pose) reflectionUtil.invokeMethod(point2, "getPose");
+                        Pose pointPos = (Pose) ReflectionUtil.invokeMethod(point2, "getPose");
                         if (pointPos != null) {
                             float[] centerArray = new float[3];
                             pointPos.getTranslation(centerArray, 0);

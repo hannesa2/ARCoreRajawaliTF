@@ -46,7 +46,7 @@ public class DeerGirlActivity extends AppCompatActivity {
     private DeerGirlARCoreRenderer renderer;
     private final SnackbarHelper messageSnackbarHelper = new SnackbarHelper();
     private TapHelper tapHelper;
-    private Handler handler = new Handler();
+    private final Handler handler = new Handler();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

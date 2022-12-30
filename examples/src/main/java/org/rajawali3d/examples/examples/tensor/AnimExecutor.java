@@ -22,11 +22,8 @@ public class AnimExecutor {
 
     private List<Animation> anims = new ArrayList<Animation>();
 
-    /**
-     * 播放动画
-     */
     public void playAnim() {
-        Log.e("fcc", "playAnim: "+anims.size());
+        Log.e("fcc", "playAnim: " + anims.size());
         for (Animation animation : anims) {
             animation.play();
         }
@@ -68,8 +65,7 @@ public class AnimExecutor {
         animGroup.addAnimation(scaleAnim);
     }
 
-    private void innerAddRotateAnimToGroup(AnimationGroup animGroup, Object3D object3D,
-                                    boolean inverse, long duration) {
+    private void innerAddRotateAnimToGroup(AnimationGroup animGroup, Object3D object3D, long duration) {
         Vector3 axis = new Vector3(0, 0, 1);
         axis.normalize();
         RotateOnAxisAnimation rotateAnim = new RotateOnAxisAnimation(axis, 0, 360);
@@ -93,7 +89,7 @@ public class AnimExecutor {
 
         innerAddTransAnimToGroup(animGroup, object3D, vector3, inverse, duration, listener);
         innerAddScaleAnimToGroup(animGroup, object3D, scale, inverse, duration);
-        innerAddRotateAnimToGroup(animGroup, object3D, inverse, duration);
+        innerAddRotateAnimToGroup(animGroup, object3D, duration);
 
         anims.add(animGroup);
         scene.registerAnimation(animGroup);

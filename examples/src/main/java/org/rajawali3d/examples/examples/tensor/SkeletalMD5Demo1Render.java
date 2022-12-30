@@ -28,7 +28,6 @@ import org.rajawali3d.loader.md5.LoaderMD5Mesh;
 
 public class SkeletalMD5Demo1Render extends DeerGirlARCoreRenderer {
 
-    private DirectionalLight mLight;
     private SkeletalAnimationObject3D mObject;
 
     public SkeletalMD5Demo1Render(@NotNull Context context, @NotNull TapHelper tapHelper, @NotNull Session session) {
@@ -43,7 +42,7 @@ public class SkeletalMD5Demo1Render extends DeerGirlARCoreRenderer {
     @Override
     protected void initScene() {
         super.initScene();
-        mLight = new DirectionalLight(0, -0.2f, -1.0f); // set the direction
+        DirectionalLight mLight = new DirectionalLight(0, -0.2f, -1.0f); // set the direction
         mLight.setColor(1.0f, 1.0f, 1.0f);
         mLight.setPower(2);
 

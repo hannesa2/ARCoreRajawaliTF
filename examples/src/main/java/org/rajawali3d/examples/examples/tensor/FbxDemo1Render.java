@@ -28,7 +28,7 @@ import org.rajawali3d.math.vector.Vector3;
 public class FbxDemo1Render extends DeerGirlARCoreRenderer {
 
     private Animation3D mAnim;
-    private TapHelper tapHelper;
+    private final TapHelper tapHelper;
 
     private Object3D object3D;
 

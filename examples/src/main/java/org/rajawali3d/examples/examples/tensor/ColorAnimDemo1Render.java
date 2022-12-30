@@ -31,7 +31,6 @@ public class ColorAnimDemo1Render extends DeerGirlARCoreRenderer {
 
     private TapHelper tapHelper;
 
-
     public ColorAnimDemo1Render(@NotNull Context context, @NotNull TapHelper tapHelper, @NotNull Session session) {
         super(context, session);
         this.tapHelper = tapHelper;

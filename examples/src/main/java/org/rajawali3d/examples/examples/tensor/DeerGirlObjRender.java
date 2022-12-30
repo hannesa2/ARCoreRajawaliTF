@@ -1,6 +1,5 @@
 package org.rajawali3d.examples.examples.tensor;
 
-
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
@@ -59,13 +58,12 @@ public class DeerGirlObjRender extends DeerGirlARCoreRenderer implements OnObjec
 //            droid.setScale(0.1);
             droid.setScale(scale);
             droid.setPosition(0.0, 0.0, -0.8); // in the middle
-            droid.setPosition(0.3, 0.3, -0.1); // 在摄像机右侧后方
+            droid.setPosition(0.3, 0.3, -0.1);
 //            droid.setPosition(0.5, 0.5, 0.5); // in the sky
-            getCurrentScene().addChild(droid); //放置一个初始的女孩
+            getCurrentScene().addChild(droid);
             object3DList.add(droid);
             objectPicker.registerObject(droid);
 
-            //这是个例子，初始化动画
 //            animExecutor.addTransAnim(getCurrentScene(), droid, new Vector3(0, 0, 0));
 //            animExecutor.addScaleAnim(getCurrentScene(), droid);
         }
@@ -95,8 +93,6 @@ public class DeerGirlObjRender extends DeerGirlARCoreRenderer implements OnObjec
 
     @Override
     public void onFrame(@NotNull Frame frame, long ellapsedRealtime, double deltaTime) {
-
-        //包含物体识别和跟踪
         super.onFrame(frame, ellapsedRealtime, deltaTime);
 
         //********************* Phase 1 begin ***********************
@@ -108,7 +104,6 @@ public class DeerGirlObjRender extends DeerGirlARCoreRenderer implements OnObjec
             // do object tracking
             objectPicker.getObjectAt(tap.getX(), tap.getY());
 
-            //这是一个例子，点击任何位置，都播放动画
             //playAnim();
         }
 

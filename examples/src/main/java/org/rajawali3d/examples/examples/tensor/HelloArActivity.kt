@@ -17,9 +17,9 @@
 package org.rajawali3d.examples.examples.tensor
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.ar.core.ArCoreApk
 import com.google.ar.core.Session
 import com.google.ar.core.examples.java.common.rendering.ARCoreRenderer
@@ -51,7 +51,7 @@ class HelloArActivity : AppCompatActivity() {
         surfaceView = findViewById(R.id.surfaceview)
 
         // Set up tap listener.
-        tapHelper = TapHelper(/*context=*/this)
+        tapHelper = TapHelper(this)
         surfaceView.setOnTouchListener(tapHelper)
 
         installRequested = false
@@ -124,9 +124,10 @@ class HelloArActivity : AppCompatActivity() {
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, results: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, results)
         if (!CameraPermissionHelper.hasCameraPermission(this)) {
             Toast.makeText(this, "Camera permission is needed to run this application", Toast.LENGTH_LONG)
-                    .show()
+                .show()
             if (!CameraPermissionHelper.shouldShowRequestPermissionRationale(this)) {
                 // Permission denied with checking "Do not ask again".
                 CameraPermissionHelper.launchPermissionSettings(this)

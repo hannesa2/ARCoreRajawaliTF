@@ -1,5 +1,6 @@
 package org.rajawali3d.examples.examples.tensor;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -9,8 +10,12 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import org.rajawali3d.examples.MyApp;
 import org.rajawali3d.examples.R;
+import org.rajawali3d.examples.common.rendering.DeerGirlARCoreRenderer;
 import org.rajawali3d.examples.examples.AExampleFragment;
+import org.rajawali3d.loader.AMeshLoader;
+import org.rajawali3d.loader.md5.LoaderMD5Mesh;
 import org.rajawali3d.renderer.ISurfaceRenderer;
 
 public class TFFragment extends AExampleFragment {
@@ -20,7 +25,7 @@ public class TFFragment extends AExampleFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root =  inflater.inflate(R.layout.activity_launcher, container, false);
+        View root = inflater.inflate(R.layout.activity_launcher, container, false);
         progressBar = root.findViewById(R.id.progress_bar);
         hint = root.findViewById(R.id.hint);
         new LoadModelTask().execute();
@@ -34,6 +39,7 @@ public class TFFragment extends AExampleFragment {
 
     public class LoadModelTask extends AsyncTask {
 
+        @SuppressLint("SetTextI18n")
         @Override
         protected void onPreExecute() {
             progressBar.setVisibility(View.VISIBLE);
@@ -43,34 +49,33 @@ public class TFFragment extends AExampleFragment {
 
         @Override
         protected Object doInBackground(Object[] objects) {
-/*            if (false) {
+            if (false) {
                 try {
-                    DeerGirlARCoreRenderer coreRender = new SkeletalMD5Demo2Render(MyApp.getContext());
+                    DeerGirlARCoreRenderer coreRender = new SkeletalMD5Demo1Render(MyApp.getContext());
 
                     DeerGirlActivity.setSRender(coreRender);
                     AMeshLoader meshParser = null;
                     if (coreRender instanceof SkeletalMD5Demo1Render) {
                         meshParser = new LoaderMD5Mesh(coreRender, R.raw.boblampclean_mesh);
                     }
-                    else if (coreRender instanceof SkeletalMD5Demo2Render) {
-                        meshParser = new LoaderMD5Mesh(coreRender, R.raw.deergirl_ch_cloth_mesh);
-                    }
+//                    else if (coreRender instanceof SkeletalMD5Demo2Render) {
+//                        meshParser = new LoaderMD5Mesh(coreRender, R.raw.deergirl_ch_cloth_mesh);                    }
                     coreRender.setSMeshParser(meshParser);
 //                meshParser.parse();
                 } catch (Exception e) {
                     e.printStackTrace();
-                    hint.setText("Error: " + e);
+                    hint.setText(e.getMessage());
                 }
-            }*/
+            }
             return null;
         }
 
+        @SuppressLint("SetTextI18n")
         @Override
         protected void onPostExecute(Object o) {
             progressBar.setVisibility(View.INVISIBLE);
             hint.setText("Finish loading model.");
             Intent intent;
-//        intent = new Intent(getActivity(), HelloArActivity.class);
             intent = new Intent(getActivity(), DeerGirlActivity.class);
             startActivity(intent);
         }

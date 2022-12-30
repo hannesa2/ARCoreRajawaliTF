@@ -8,7 +8,6 @@ import java.lang.reflect.Method;
 
 public class ReflectionUtil {
 
-    // 反射调用无参方法
     public static Object invokeMethod(Object obj, String methodName) {
         if (obj != null && !TextUtils.isEmpty(methodName)) {
             Class clazz = obj.getClass();

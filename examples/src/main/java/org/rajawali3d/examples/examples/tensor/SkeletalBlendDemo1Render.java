@@ -26,14 +26,9 @@ import org.rajawali3d.loader.md5.LoaderMD5Mesh;
 
 public class SkeletalBlendDemo1Render extends DeerGirlARCoreRenderer {
 
-    private TapHelper tapHelper;
+    private final TapHelper tapHelper;
 
-    private DirectionalLight          mLight;
     private SkeletalAnimationObject3D mObject;
-    private SkeletalAnimationSequence mSequenceWalk;
-    private SkeletalAnimationSequence mSequenceIdle;
-    private SkeletalAnimationSequence mSequenceArmStretch;
-    private SkeletalAnimationSequence mSequenceBend;
 
     public SkeletalBlendDemo1Render(@NotNull Context context, @NotNull TapHelper tapHelper, @NotNull Session session) {
         super(context, session);
@@ -44,7 +39,7 @@ public class SkeletalBlendDemo1Render extends DeerGirlARCoreRenderer {
     @Override
     protected void initScene() {
         super.initScene();
-        mLight = new DirectionalLight(0, -0.2f, -1.0f); // set the direction
+        DirectionalLight mLight = new DirectionalLight(0, -0.2f, -1.0f); // set the direction
         mLight.setColor(1.0f, 1.0f, .8f);
         mLight.setPower(1);
 
@@ -60,26 +55,26 @@ public class SkeletalBlendDemo1Render extends DeerGirlARCoreRenderer {
                     R.raw.ingrid_idle);
             animParser.parse();
 
-            mSequenceIdle = (SkeletalAnimationSequence) animParser
+            SkeletalAnimationSequence mSequenceIdle = (SkeletalAnimationSequence) animParser
                     .getParsedAnimationSequence();
 
             animParser = new LoaderMD5Anim("walk", this, R.raw.ingrid_walk);
             animParser.parse();
 
-            mSequenceWalk = (SkeletalAnimationSequence) animParser
+            SkeletalAnimationSequence mSequenceWalk = (SkeletalAnimationSequence) animParser
                     .getParsedAnimationSequence();
 
             animParser = new LoaderMD5Anim("armstretch", this,
                     R.raw.ingrid_arm_stretch);
             animParser.parse();
 
-            mSequenceArmStretch = (SkeletalAnimationSequence) animParser
+            SkeletalAnimationSequence mSequenceArmStretch = (SkeletalAnimationSequence) animParser
                     .getParsedAnimationSequence();
 
             animParser = new LoaderMD5Anim("bend", this, R.raw.ingrid_bend);
             animParser.parse();
 
-            mSequenceBend = (SkeletalAnimationSequence) animParser
+            SkeletalAnimationSequence mSequenceBend = (SkeletalAnimationSequence) animParser
                     .getParsedAnimationSequence();
 
             mObject = (SkeletalAnimationObject3D) meshParser
