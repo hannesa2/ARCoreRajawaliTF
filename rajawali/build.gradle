@@ -19,32 +19,14 @@ if (isReleaseBuild()) {
 
 task jacocoTestReport(type: JacocoReport, dependsOn: 'testDebugUnitTest') {
 
-//    reports {
-//        xml.enabled = true
-//        html.enabled = true
-//    }
-//
-//    jacocoClasspath = configurations['androidJacocoAnt']
-//
-//    def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*', 'android/**/*.*']
-//    def debugTree = fileTree(dir: "${buildDir}/intermediates/classes/debug", excludes: fileFilter)
-//    def mainSrc = "${project.projectDir}/src/main/java"
-//
-//    sourceDirectories = files([mainSrc])
-//    classDirectories = files([debugTree])
-//    executionData = files(["${buildDir}/jacoco/testDebugUnitTest.exec",
-//                           "${buildDir}/outputs/code-coverage/connected/coverage.ec"
-//            ])
 }
 
 android {
-    compileSdkVersion rootProject.compileSdk
+    compileSdkVersion 33
 
     defaultConfig {
         minSdkVersion 26
-        targetSdkVersion rootProject.targetSdk
-        versionCode rootProject.versionCode
-        versionName rootProject.versionName
+        targetSdkVersion 33
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
 

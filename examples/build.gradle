@@ -8,8 +8,8 @@ android {
         applicationId "org.rajawali3d.examples"
         minSdkVersion 26
         targetSdkVersion 33
-        versionCode 1
-        versionName '1.0'
+        versionCode getGitCommitCount()
+        versionName getTag()
 
 //        ndk {
 //            abiFilters "armeabi-v7a", "x86"
@@ -65,28 +65,18 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v13:1.0.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
-    implementation 'com.google.code.gson:gson:2.6.2'
+    implementation 'com.google.code.gson:gson:2.10'
     implementation 'com.koushikdutta.ion:ion:2.1.7'
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    // ARCore library
-    implementation 'com.google.ar:core:1.1.0'
-
-    // Rajawali
-//    implementation 'org.rajawali3d:rajawali:1.1.970@aar'
+    implementation 'com.google.ar:core:1.35.0'
 
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
 
     implementation project(':rajawali')
-//    withVuforiaImplementation project(':vuforia')
-//    withVuforiaImplementation project(':vr')
-
-//    wearApp project(':wear-example')
-
     implementation 'org.tensorflow:tensorflow-android:1.13.1'
 }

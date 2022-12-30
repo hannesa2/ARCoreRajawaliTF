@@ -1,5 +1,0 @@
-project.ext.set('minSdk', 21)
-project.ext.set('targetSdk', 33)
-project.ext.set('compileSdk', 33)
-project.ext.set('versionCode', 1)
-project.ext.set('versionName', '1.1')
