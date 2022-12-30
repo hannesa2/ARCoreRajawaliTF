@@ -5,18 +5,13 @@ if (file('local.gradle').exists()) {
 }
 
 buildscript {
-    ext.kotlin_version = '1.2.51'
+    ext.kotlin_version = '1.7.22'
     repositories {
         google()
         jcenter()
-        maven {
-            url 'https://maven.google.com/'
-            name 'Google'
-        }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
-//        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.android.tools.build:gradle:7.3.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "jp.classmethod.aws:gradle-aws-plugin:0.31"
     }
@@ -27,10 +22,6 @@ allprojects {
         google()
         mavenLocal()
         jcenter()
-        maven {
-            url 'https://maven.google.com/'
-            name 'Google'
-        }
     }
 }
 
@@ -57,4 +48,16 @@ boolean isTag() {
 
 def buildNumber() {
     return System.getenv('TRAVIS_BUILD_NUMBER') ?: "0"
+}
+
+@SuppressWarnings('unused')
+static def getTag() {
+    def process = "git describe --tags --abbrev=0".execute()
+    return process.text.toString().trim()
+}
+
+@SuppressWarnings('unused')
+static def getGitCommitCount() {
+    def process = "git rev-list HEAD --count".execute()
+    return process.text.toInteger()
 }

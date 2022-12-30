@@ -3,14 +3,13 @@ apply plugin: 'jacoco'
 apply plugin: 'signing'
 
 String getVersionString() {
-    String v = VERSION_NAME.replaceAll(".(0)\$", "." + buildNumber())
+    String v = getTag().replaceAll(".(0)\$", "." + buildNumber())
     v = isTag() ? v : v + "-SNAPSHOT"
     return v
 }
 
-group = GROUP
+group = "mxtracks.info"
 version = getVersionString()
-
 
 if (isReleaseBuild()) {
     status = 'release'
@@ -40,7 +39,6 @@ task jacocoTestReport(type: JacocoReport, dependsOn: 'testDebugUnitTest') {
 
 android {
     compileSdkVersion rootProject.compileSdk
-    buildToolsVersion = '28.0.3'
 
     defaultConfig {
         minSdkVersion 15
@@ -76,12 +74,11 @@ android {
 }
 
 dependencies {
-    compile project.depSupportAnnotations
-    testCompile 'junit:junit:4.12'
+    implementation project.depSupportAnnotations
 
-    androidTestCompile 'com.android.support.test:runner:0.4'
-    // Set this dependency to use JUnit 4 rules
-    androidTestCompile 'com.android.support.test:rules:0.4'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:0.4'
+    androidTestImplementation 'com.android.support.test:rules:0.4'
 }
 
-apply from: '../maven_push.gradle'
+//apply from: '../maven_push.gradle'

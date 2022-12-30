@@ -36,8 +36,8 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project.depWearableSupport
-    compile project.depWearableServices
-    compile project(':wear')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project.depWearableSupport
+    implementation project.depWearableServices
+    implementation project(':wear')
 }
