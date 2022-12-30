@@ -46,8 +46,8 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project.depAndroidSupport
-    implementation project.depSupportAnnotations
+    implementation 'com.android.support:support-v13:23.2.0'
+    implementation 'com.android.support:support-annotations:23.2.0'
 
     implementation project(':rajawali')
 }

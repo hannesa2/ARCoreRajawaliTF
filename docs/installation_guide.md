@@ -11,7 +11,7 @@ Next we can just choose the default Android Version and choose **Blank Activity*
 
 ## Get Rajawali From Maven and into your Android Studio Project
 
-Next, we want to to get Rajawali into our project. We are going to do this using Maven. This should work for the latest version of Rajawali, but you might have to change out your version for another one. If you cannot find the version, [try looking in the RajawaliExamples gradle dependencies in Github](https://github.com/Rajawali/RajawaliExamples/blob/master/deps.gradle) or from where they host the [Maven package](https://oss.sonatype.org/#nexus-search;quick~rajawali).
+Next, we want to to get Rajawali into our project. We are going to do this using Maven. This should work for the latest version of Rajawali, but you might have to change out your version for another one.
 
 In your **build.gradle (Project: RajawaliBasicProject)** file, we need to add a few lines.
 ```gradle
