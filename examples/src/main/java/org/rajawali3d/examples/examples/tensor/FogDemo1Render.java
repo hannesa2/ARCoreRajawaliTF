@@ -1,4 +1,4 @@
-package org.rajawali3d.examples.examples.fcc;
+package org.rajawali3d.examples.examples.tensor;
 
 import android.content.Context;
 import android.view.MotionEvent;
@@ -17,93 +17,84 @@ import com.google.ar.core.TrackingState;
 import org.jetbrains.annotations.NotNull;
 import org.rajawali3d.Object3D;
 import org.rajawali3d.animation.Animation;
-import org.rajawali3d.animation.SplineTranslateAnimation3D;
-import org.rajawali3d.curves.CatmullRomCurve3D;
+import org.rajawali3d.animation.TranslateAnimation3D;
 import org.rajawali3d.examples.R;
 import org.rajawali3d.examples.common.helpers.TapHelper;
 import org.rajawali3d.examples.common.rendering.DeerGirlARCoreRenderer;
-import org.rajawali3d.examples.examples.interactive.planes.PlanesGalore;
-import org.rajawali3d.examples.examples.interactive.planes.PlanesGaloreMaterialPlugin;
 import org.rajawali3d.lights.DirectionalLight;
+import org.rajawali3d.loader.LoaderOBJ;
 import org.rajawali3d.materials.Material;
-import org.rajawali3d.materials.textures.ATexture;
+import org.rajawali3d.materials.methods.DiffuseMethod;
+import org.rajawali3d.materials.plugins.FogMaterialPlugin;
 import org.rajawali3d.materials.textures.Texture;
 import org.rajawali3d.math.vector.Vector3;
 
-import javax.microedition.khronos.egl.EGLConfig;
-import javax.microedition.khronos.opengles.GL10;
-
-public class Planes2000Demo1Render extends DeerGirlARCoreRenderer {
-
+public class FogDemo1Render extends DeerGirlARCoreRenderer {
     private TapHelper tapHelper;
 
-    private long mStartTime;
-    private Material mMaterial;
-    private PlanesGaloreMaterialPlugin mMaterialPlugin;
+    private DirectionalLight mLight;
+    private Object3D mRoad;
 
-    public Planes2000Demo1Render(@NotNull Context context, @NotNull TapHelper tapHelper, @NotNull Session session) {
+    public FogDemo1Render(@NotNull Context context, @NotNull TapHelper tapHelper, @NotNull Session session) {
         super(context, session);
         this.tapHelper = tapHelper;
     }
 
     @Override
-    public void onRenderSurfaceCreated(EGLConfig config, GL10 gl, int width, int height) {
-        super.onRenderSurfaceCreated(config, gl, width, height);
-        mStartTime = System.currentTimeMillis();
-    }
-
-    @Override
-    protected void onRender(long ellapsedRealtime, double deltaTime) {
-        super.onRender(ellapsedRealtime, deltaTime);
-        mMaterial.setTime((System.currentTimeMillis() - mStartTime) / 1000f);
-        mMaterialPlugin.setCameraPosition(getCurrentCamera().getPosition());
-    }
-
-    @Override
     protected void initScene() {
         super.initScene();
-        DirectionalLight light = new DirectionalLight(0, 0, 1);
+        mLight = new DirectionalLight(0, -1, -1);
+        mLight.setPower(.5f);
 
-        getCurrentScene().addLight(light);
-        getCurrentCamera().setPosition(0, 0, -16);
+        getCurrentScene().addLight(mLight);
 
-        final PlanesGalore planes = new PlanesGalore();
-        mMaterial = planes.getMaterial();
-        mMaterial.setColorInfluence(0);
+        int fogColor = 0x999999;
+
+        getCurrentScene().setBackgroundColor(fogColor);
+        getCurrentScene().setFog(new FogMaterialPlugin.FogParams(FogMaterialPlugin.FogType.LINEAR, fogColor, 1, 15));
+
+        LoaderOBJ objParser = new LoaderOBJ(mContext.getResources(),
+                mTextureManager, R.raw.road);
         try {
-            mMaterial.addTexture(new Texture("flickrPics", R.drawable.flickrpics));
-        } catch (ATexture.TextureException e) {
+            objParser.parse();
+            mRoad = objParser.getParsedObject();
+            mRoad.setZ(5);
+            mRoad.setRotY(180);
+            getCurrentScene().addChild(mRoad);
+
+            Material roadMaterial = new Material();
+            roadMaterial.enableLighting(true);
+            roadMaterial.setDiffuseMethod(new DiffuseMethod.Lambert());
+            roadMaterial.addTexture(new Texture("roadTex", R.drawable.road));
+            roadMaterial.setColorInfluence(0);
+            mRoad.getChildByName("Road").setMaterial(roadMaterial);
+
+            Material signMaterial = new Material();
+            signMaterial.enableLighting(true);
+            signMaterial.setDiffuseMethod(new DiffuseMethod.Lambert());
+            signMaterial.addTexture(new Texture("rajawaliSign", R.drawable.sign));
+            signMaterial.setColorInfluence(0);
+            mRoad.getChildByName("WarningSign").setMaterial(signMaterial);
+
+            Material warningMaterial = new Material();
+            warningMaterial.enableLighting(true);
+            warningMaterial.setDiffuseMethod(new DiffuseMethod.Lambert());
+            warningMaterial.addTexture(new Texture("warning", R.drawable.warning));
+            warningMaterial.setColorInfluence(0);
+            mRoad.getChildByName("Warning").setMaterial(warningMaterial);
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
-        mMaterialPlugin = planes.getMaterialPlugin();
-
-        planes.setDoubleSided(true);
-        planes.setZ(4);
-        getCurrentScene().addChild(planes);
-
-        Object3D empty = new Object3D();
-        getCurrentScene().addChild(empty);
-
-        CatmullRomCurve3D path = new CatmullRomCurve3D();
-        path.addPoint(new Vector3(-4, 0, -20));
-        path.addPoint(new Vector3(2, 1, -10));
-        path.addPoint(new Vector3(-2, 0, 10));
-        path.addPoint(new Vector3(0, -4, 20));
-        path.addPoint(new Vector3(5, 10, 30));
-        path.addPoint(new Vector3(-2, 5, 40));
-        path.addPoint(new Vector3(3, -1, 60));
-        path.addPoint(new Vector3(5, -1, 70));
-
-        final SplineTranslateAnimation3D anim = new SplineTranslateAnimation3D(path);
-        anim.setDurationMilliseconds(20000);
-        anim.setRepeatMode(Animation.RepeatMode.REVERSE_INFINITE);
-        anim.setTransformable3D(getCurrentCamera());
-        anim.setInterpolator(new AccelerateDecelerateInterpolator());
-        getCurrentScene().registerAnimation(anim);
-        anim.play();
-
-        getCurrentCamera().setLookAt(new Vector3(0, 0, 30));
+        TranslateAnimation3D camAnim = new TranslateAnimation3D(
+                new Vector3(0, 2, 0),
+                new Vector3(0, 2, -23));
+        camAnim.setDurationMilliseconds(8000);
+        camAnim.setInterpolator(new AccelerateDecelerateInterpolator());
+        camAnim.setRepeatMode(Animation.RepeatMode.REVERSE_INFINITE);
+        camAnim.setTransformable3D(getCurrentCamera());
+        getCurrentScene().registerAnimation(camAnim);
+        camAnim.play();
     }
 
     @Override
@@ -158,7 +149,7 @@ public class Planes2000Demo1Render extends DeerGirlARCoreRenderer {
                 anchor.getPose().getTranslation(translation, 0);
 
                 // Spawn new droid object at anchor position
-
+                mRoad.setPosition(translation[0], translation[1], translation[2]);
                 break;
             }
         }

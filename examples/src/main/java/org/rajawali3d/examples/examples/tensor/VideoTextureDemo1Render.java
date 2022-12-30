@@ -1,11 +1,10 @@
-package org.rajawali3d.examples.examples.fcc;
+package org.rajawali3d.examples.examples.tensor;
 
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.SurfaceTexture;
 import android.media.MediaPlayer;
 import android.util.Log;
-import android.view.animation.AccelerateDecelerateInterpolator;
 
 import com.google.ar.core.Anchor;
 import com.google.ar.core.Frame;
@@ -18,10 +17,6 @@ import com.google.ar.core.TrackingState;
 
 import org.jetbrains.annotations.NotNull;
 import org.rajawali3d.Object3D;
-import org.rajawali3d.animation.Animation;
-import org.rajawali3d.animation.EllipticalOrbitAnimation3D;
-import org.rajawali3d.animation.TranslateAnimation3D;
-import org.rajawali3d.animation.mesh.SkeletalAnimationObject3D;
 import org.rajawali3d.examples.R;
 import org.rajawali3d.examples.common.helpers.TapHelper;
 import org.rajawali3d.examples.common.rendering.DeerGirlARCoreRenderer;

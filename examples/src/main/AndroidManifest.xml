@@ -80,7 +80,7 @@
         </activity>
 
         <activity
-            android:name="org.rajawali3d.examples.examples.fcc.HelloArActivity"
+            android:name="org.rajawali3d.examples.examples.tensor.HelloArActivity"
             android:configChanges="orientation|screenSize"
             android:exported="true"
             android:screenOrientation="locked"
@@ -107,7 +107,7 @@
         </activity>
 
         <activity
-            android:name="org.rajawali3d.examples.examples.fcc.DeerGirlActivity"
+            android:name="org.rajawali3d.examples.examples.tensor.DeerGirlActivity"
             android:configChanges="orientation|screenSize"
             android:exported="true"
             android:screenOrientation="locked"

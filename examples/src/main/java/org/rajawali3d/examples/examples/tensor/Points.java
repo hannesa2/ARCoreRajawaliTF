@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.rajawali3d.examples.examples.fcc;
+package org.rajawali3d.examples.examples.tensor;
 
 import android.opengl.GLES10;
 import android.opengl.GLES20;

@@ -13,11 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.rajawali3d.examples.examples.fcc
+package org.rajawali3d.examples.examples.tensor
 
 import android.content.Context
-import android.graphics.Color
-import android.util.Log
 import android.view.MotionEvent
 import com.google.ar.core.*
 import org.rajawali3d.examples.R
@@ -25,12 +23,10 @@ import com.google.ar.core.examples.java.common.rendering.ARCoreRenderer
 import org.rajawali3d.Object3D
 import org.rajawali3d.examples.common.helpers.TapHelper
 import org.rajawali3d.loader.LoaderOBJ
-import org.rajawali3d.materials.Material
-import org.rajawali3d.materials.textures.Texture
 
-class MyARCoreApp(context: Context,
-                  private val tapHelper: TapHelper,
-                  session: Session) : ARCoreRenderer(context, session) {
+class RajARCoreRenderer(context: Context,
+                        private val tapHelper: TapHelper,
+                        session: Session) : ARCoreRenderer(context, session) {
 
     private lateinit var droid: Object3D
 
@@ -52,7 +48,7 @@ class MyARCoreApp(context: Context,
     }
 
     fun girlScene(objParser: LoaderOBJ) {
-        var num = objParser.parsedObject.numChildren - 1
+        val num = objParser.parsedObject.numChildren - 1
         for (i in 1..num) {
             droid = objParser.parsedObject.getChildAt(i)
             droid.setScale(0.1)

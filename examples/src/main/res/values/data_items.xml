@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="category_fcc">fcc</string>
+    <string name="category_tf">TensorFlow</string>
     <string name="category_general">General</string>
     <string name="category_lights">Lights</string>
     <string name="category_interactive">Interactive</string>
@@ -13,7 +13,7 @@
     <string name="category_scenes">Scenes</string>
     <string name="category_vr_ar">VR &amp; AR</string>
 
-    <string name="example_fcc_deergirl_stand">DeerGirl Stand</string>
+    <string name="example_tf">DeerGirl Stand</string>
 
     <string name="example_general_getting_started">Getting Started</string>
     <string name="example_general_skybox">Skybox</string>

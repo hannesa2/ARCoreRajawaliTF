@@ -1,4 +1,4 @@
-package org.rajawali3d.examples.examples.fcc;
+package org.rajawali3d.examples.examples.tensor;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -9,16 +9,11 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import org.rajawali3d.examples.MyApp;
 import org.rajawali3d.examples.R;
-import org.rajawali3d.examples.common.rendering.DeerGirlARCoreRenderer;
 import org.rajawali3d.examples.examples.AExampleFragment;
-import org.rajawali3d.loader.AMeshLoader;
-import org.rajawali3d.loader.ParsingException;
-import org.rajawali3d.loader.md5.LoaderMD5Mesh;
 import org.rajawali3d.renderer.ISurfaceRenderer;
 
-public class DeergirlStandFragment extends AExampleFragment {
+public class TFFragment extends AExampleFragment {
 
     ProgressBar progressBar;
     TextView hint;
@@ -43,7 +38,7 @@ public class DeergirlStandFragment extends AExampleFragment {
         protected void onPreExecute() {
             progressBar.setVisibility(View.VISIBLE);
             hint.setVisibility(View.VISIBLE);
-            hint.setText("u a loading model....");
+            hint.setText("loading model....");
         }
 
         @Override

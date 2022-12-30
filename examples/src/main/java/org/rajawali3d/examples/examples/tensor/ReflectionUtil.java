@@ -1,4 +1,4 @@
-package org.rajawali3d.examples.examples.fcc;
+package org.rajawali3d.examples.examples.tensor;
 
 import android.text.TextUtils;
 import android.util.Log;

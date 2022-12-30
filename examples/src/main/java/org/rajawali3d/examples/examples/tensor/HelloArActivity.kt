@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.rajawali3d.examples.examples.fcc
+package org.rajawali3d.examples.examples.tensor
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -82,7 +82,7 @@ class HelloArActivity : AppCompatActivity() {
 
                 // Create the session.
                 val session = Session(/* context= */this)
-                renderer = MyARCoreApp(this, tapHelper, session)
+                renderer = RajARCoreRenderer(this, tapHelper, session)
                 surfaceView.setSurfaceRenderer(renderer)
 
             } catch (e: UnavailableArcoreNotInstalledException) {

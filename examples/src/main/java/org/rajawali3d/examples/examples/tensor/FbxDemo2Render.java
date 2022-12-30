@@ -1,4 +1,4 @@
-package org.rajawali3d.examples.examples.fcc;
+package org.rajawali3d.examples.examples.tensor;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -20,7 +20,6 @@ import org.rajawali3d.Object3D;
 import org.rajawali3d.animation.Animation;
 import org.rajawali3d.animation.Animation3D;
 import org.rajawali3d.animation.RotateOnAxisAnimation;
-import org.rajawali3d.examples.R;
 import org.rajawali3d.examples.common.helpers.TapHelper;
 import org.rajawali3d.examples.common.rendering.DeerGirlARCoreRenderer;
 import org.rajawali3d.loader.ParsingException;

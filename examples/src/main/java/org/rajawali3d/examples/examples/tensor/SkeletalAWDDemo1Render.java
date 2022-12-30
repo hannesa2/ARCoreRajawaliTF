@@ -1,4 +1,4 @@
-package org.rajawali3d.examples.examples.fcc;
+package org.rajawali3d.examples.examples.tensor;
 
 import android.content.Context;
 import android.util.Log;
@@ -9,16 +9,12 @@ import com.google.ar.core.Frame;
 import com.google.ar.core.HitResult;
 import com.google.ar.core.Plane;
 import com.google.ar.core.Point;
-import com.google.ar.core.PointCloud;
 import com.google.ar.core.Pose;
 import com.google.ar.core.Session;
 import com.google.ar.core.Trackable;
 import com.google.ar.core.TrackingState;
 
 import org.jetbrains.annotations.NotNull;
-import org.rajawali3d.Object3D;
-import org.rajawali3d.animation.Animation;
-import org.rajawali3d.animation.IAnimationListener;
 import org.rajawali3d.animation.mesh.SkeletalAnimationObject3D;
 import org.rajawali3d.examples.R;
 import org.rajawali3d.examples.common.helpers.TapHelper;
@@ -28,7 +24,6 @@ import org.rajawali3d.loader.LoaderAWD;
 import org.rajawali3d.loader.ParsingException;
 import org.rajawali3d.math.vector.Vector3;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class SkeletalAWDDemo1Render extends DeerGirlARCoreRenderer {
